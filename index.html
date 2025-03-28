@@ -3,13 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Car Analytics Hub 🚗💨</title>
+    <title>Ace Car Dealership 🚗</title>
     <style>
         body {
             font-family: 'Arial', sans-serif;
             margin: 0;
             padding: 0;
-            background: linear-gradient(135deg, #1e3c72, #2a5298);
+            background: linear-gradient(135deg, #2c3e50, #3498db);
             color: #fff;
             min-height: 100vh;
             line-height: 1.6;
@@ -23,48 +23,53 @@
 
         header {
             text-align: center;
-            padding: 40px 0;
-            background: rgba(0, 0, 0, 0.2);
+            padding: 50px 0;
+            background: rgba(0, 0, 0, 0.3);
+            border-bottom: 2px solid #e74c3c;
         }
 
         h1 {
-            font-size: 2.5em;
+            font-size: 2.8em;
             margin: 0;
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+            text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.6);
         }
 
         nav {
             text-align: center;
-            padding: 15px 0;
+            padding: 20px 0;
+            background: rgba(255, 255, 255, 0.1);
         }
 
         nav a {
             color: #fff;
             text-decoration: none;
-            margin: 0 15px;
+            margin: 0 20px;
             font-weight: bold;
+            font-size: 1.1em;
         }
 
         nav a:hover {
-            color: #ff4d4d;
+            color: #e74c3c;
         }
 
         .section {
-            margin: 20px 0;
-            padding: 20px;
-            background: rgba(255, 255, 255, 0.1);
+            margin: 30px 0;
+            padding: 25px;
+            background: rgba(255, 255, 255, 0.15);
             border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
         }
 
         h2 {
-            color: #ff4d4d;
-            font-size: 1.8em;
+            color: #e74c3c;
+            font-size: 2em;
+            margin-top: 0;
         }
 
         .tableau-container {
             margin: 20px 0;
             padding: 15px;
-            background: rgba(255, 77, 77, 0.2);
+            background: rgba(231, 76, 60, 0.2);
             border-radius: 10px;
         }
 
@@ -75,64 +80,81 @@
             border-radius: 5px;
         }
 
+        .inventory-list {
+            list-style: none;
+            padding: 0;
+        }
+
+        .inventory-list li {
+            background: rgba(0, 0, 0, 0.2);
+            padding: 10px;
+            margin: 10px 0;
+            border-radius: 5px;
+        }
+
         footer {
             text-align: center;
             padding: 20px;
-            background: rgba(0, 0, 0, 0.3);
-            position: relative;
-            bottom: 0;
-            width: 100%;
+            background: rgba(0, 0, 0, 0.4);
+            margin-top: 30px;
+        }
+
+        footer a {
+            color: #e74c3c;
+            text-decoration: none;
         }
     </style>
 </head>
 <body>
     <div class="container">
         <header>
-            <h1>Car Analytics Hub 🚗💨</h1>
-            <p>Speeding Through Data with Style! 🏎️</p>
+            <h1>Ace Car Dealership 🚗</h1>
+            <p>Your One-Stop Shop for Speed & Style! 🏎️</p>
         </header>
 
         <nav>
             <a href="#home">Home 🏠</a>
-            <a href="#dashboard">Dashboard 📊</a>
-            <a href="#stats">Stats 🛣️</a>
+            <a href="#inventory">Inventory 🚘</a>
+            <a href="#analytics">Analytics 📊</a>
             <a href="#contact">Contact 📞</a>
         </nav>
 
         <div class="section" id="home">
-            <h2>Welcome to the Garage! 👋</h2>
-            <p>Get ready to race through insights with our car-themed analytics hub! We’ve got the horsepower to turn data into action. 🚘</p>
+            <h2>Welcome to Ace! 👋</h2>
+            <p>Drive away in your dream car today! At Ace Car Dealership, we offer top-quality vehicles with unbeatable service. Explore our inventory and analytics below! 🚦</p>
         </div>
 
-        <div class="section" id="dashboard">
-            <h2>Racing Dashboard 🏁</h2>
-            <p>Check out our interactive Tableau dashboard below—full throttle data visualization!</p>
+        <div class="section" id="inventory">
+            <h2>Our Inventory 🚘</h2>
+            <p>Check out some of our hottest rides:</p>
+            <ul class="inventory-list">
+                <li>🏎️ 2023 Speedster GT - $45,000</li>
+                <li>🚗 2022 Family Cruiser - $28,000</li>
+                <li>🚙 2024 Off-Road Beast - $55,000</li>
+            </ul>
+        </div>
+
+        <div class="section" id="analytics">
+            <h2>Sales Analytics 📈</h2>
+            <p>See our performance in action with this interactive Tableau dashboard!</p>
             <div class="tableau-container">
                 <iframe 
                     src="https://public.tableau.com/views/J4XCFF4X6?:embed=y&:display_count=n&:origin=viz_share_link" 
                     class="tableau-iframe" 
-                    title="Car Analytics Dashboard">
+                    title="Ace Car Dealership Analytics">
                 </iframe>
             </div>
         </div>
 
-        <div class="section" id="stats">
-            <h2>Roadside Stats 🚦</h2>
-            <p>Here’s a quick pit stop of key metrics:</p>
-            <ul style="list-style: none; padding: 0;">
-                <li>🏎️ Drivers: 1.5M+</li>
-                <li>💰 Sales: $25M+</li>
-                <li>📈 Growth: 35% YoY</li>
-            </ul>
-        </div>
-
         <div class="section" id="contact">
-            <h2>Rev Up a Chat! 📣</h2>
-            <p>Got questions or need a tune-up? Reach out at: <a href="mailto:info@carhub.com" style="color: #ff4d4d;">info@carhub.com</a> 🚗</p>
+            <h2>Get in Touch! 📣</h2>
+            <p>Ready to hit the road? Contact us:</p>
+            <p>Email: <a href="mailto:sales@acecars.com">sales@acecars.com</a> | Phone: (555) 123-4567</p>
+            <p>Visit us at: 123 Speed Lane, Auto City</p>
         </div>
 
         <footer>
-            <p>© 2025 Car Analytics Hub | Built with Speed & ☕</p>
+            <p>© 2025 Ace Car Dealership | Powered by Passion & <a href="mailto:info@acecars.com">☕</a></p>
         </footer>
     </div>
 </body>
