@@ -71,6 +71,7 @@
             padding: 15px;
             background: rgba(231, 76, 60, 0.2);
             border-radius: 10px;
+            position: relative;
         }
 
         .tableau-iframe {
@@ -78,6 +79,14 @@
             height: 600px;
             border: none;
             border-radius: 5px;
+        }
+
+        .fallback-message {
+            text-align: center;
+            padding: 20px;
+            background: rgba(0, 0, 0, 0.5);
+            border-radius: 5px;
+            display: none;
         }
 
         .inventory-list {
@@ -141,8 +150,12 @@
                 <iframe 
                     src="https://public.tableau.com/views/J4XCFF4X6?:embed=y&:display_count=n&:origin=viz_share_link" 
                     class="tableau-iframe" 
-                    title="Ace Car Dealership Analytics">
+                    title="Ace Car Dealership Analytics"
+                    id="tableauIframe">
                 </iframe>
+                <div class="fallback-message" id="fallbackMessage">
+                    <p>🚗 Oops! The dashboard couldn’t load. Please check the Tableau link or refresh the page. 🏎️</p>
+                </div>
             </div>
         </div>
 
@@ -157,5 +170,33 @@
             <p>© 2025 Ace Car Dealership | Powered by Passion & <a href="mailto:info@acecars.com">☕</a></p>
         </footer>
     </div>
+
+    <script>
+        // Check if Tableau iframe loads
+        document.addEventListener('DOMContentLoaded', () => {
+            const iframe = document.getElementById('tableauIframe');
+            const fallback = document.getElementById('fallbackMessage');
+
+            iframe.onerror = () => {
+                console.error("Tableau iframe failed to load.");
+                fallback.style.display = 'block';
+                iframe.style.display = 'none';
+            };
+
+            iframe.onload = () => {
+                console.log("Tableau iframe loaded successfully!");
+                fallback.style.display = 'none';
+            };
+
+            // Fallback after 10 seconds if no load event
+            setTimeout(() => {
+                if (iframe.offsetHeight === 0) {
+                    console.warn("Tableau iframe likely failed to load (height 0).");
+                    fallback.style.display = 'block';
+                    iframe.style.display = 'none';
+                }
+            }, 10000);
+        });
+    </script>
 </body>
 </html>
