@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Data Analytics Dashboard 📊✨</title>
     <style>
-        /* Gradient Background and Base Styles */
         body {
             margin: 0;
             padding: 0;
@@ -21,7 +20,6 @@
             padding: 20px;
         }
 
-        /* Header Styles with Animation */
         header {
             text-align: center;
             padding: 40px 0;
@@ -34,7 +32,6 @@
             text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
         }
 
-        /* Navigation */
         nav {
             background: rgba(255, 255, 255, 0.1);
             padding: 15px;
@@ -56,7 +53,6 @@
             display: inline-block;
         }
 
-        /* Section Styles */
         .section {
             background: rgba(255, 255, 255, 0.15);
             padding: 25px;
@@ -72,7 +68,6 @@
             font-size: 1.8em;
         }
 
-        /* Tableau Container */
         .tableau-container {
             position: relative;
             padding-bottom: 56.25%;
@@ -91,7 +86,6 @@
             border: none;
         }
 
-        /* Fun Stats Section */
         .stats-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
@@ -111,7 +105,6 @@
             transform: translateY(-5px);
         }
 
-        /* Animations */
         @keyframes fadeIn {
             from { opacity: 0; }
             to { opacity: 1; }
@@ -122,7 +115,6 @@
             to { transform: translateY(0); opacity: 1; }
         }
 
-        /* Responsive Design */
         @media (max-width: 768px) {
             nav a { display: block; margin: 10px 0; }
             h1 { font-size: 2em; }
@@ -132,13 +124,11 @@
 </head>
 <body>
     <div class="container">
-        <!-- Header -->
         <header>
             <h1>Data Analytics Hub 📈🚀</h1>
             <p>Explore insights with a sprinkle of fun! ✨</p>
         </header>
 
-        <!-- Navigation -->
         <nav>
             <a href="#dashboard">Dashboard</a>
             <a href="#stats">Stats</a>
@@ -146,13 +136,13 @@
             <a href="#about">About</a>
         </nav>
 
-        <!-- Main Dashboard Section -->
+        <!-- Tableau Dashboard Section -->
         <div class="section" id="dashboard">
             <h2>Interactive Tableau Dashboard 📊</h2>
             <p>Dive into our awesome data visualizations! 😎</p>
             <div class="tableau-container">
                 <iframe 
-                    src="https://public.tableau.com/views/dashboardfirst_17425545826930/Dashboard1?:language=en-US&:sid=&:display_count=n&:origin=viz_share_link"
+                    src="https://public.tableau.com/views/dashboardfirst_17425545826930/Dashboard1?:language=en-US&:sid=&:redirect=auth&:display_count=n&:origin=viz_share_link"
                     allowfullscreen
                 ></iframe>
             </div>
@@ -196,7 +186,6 @@
     </div>
 
     <script>
-        // Counter Animation for Stats
         function animateCounter(id, start, end, duration) {
             let element = document.getElementById(id);
             let range = end - start;
@@ -213,14 +202,12 @@
             }, stepTime);
         }
 
-        // Start animations when page loads
         window.onload = () => {
             animateCounter('userCount', 0, 1500, 2000);
             animateCounter('salesCount', 0, 50000, 2000);
             animateCounter('growthCount', 0, 25, 2000);
         };
 
-        // Smooth Scroll for Navigation
         document.querySelectorAll('nav a').forEach(anchor => {
             anchor.addEventListener('click', function(e) {
                 e.preventDefault();
