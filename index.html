@@ -133,7 +133,7 @@
                     id="tableauIframe">
                 </iframe>
                 <div class="fallback-message" id="fallbackMessage">
-                    <p>📊 Oops! The dashboard couldn’t load. Please check the Tableau link or refresh the page. 🔄</p>
+                    <p>📊 Oops! Couldn’t connect to public.tableau.com. Please check your internet connection, disable any VPN, or try refreshing the page. 🔄</p>
                 </div>
             </div>
         </div>
@@ -168,13 +168,19 @@
 
             iframe.onload = () => {
                 console.log("Tableau iframe loaded successfully!");
-                fallback.style.display = 'none';
+                if (iframe.offsetHeight === 0) {
+                    console.warn("Tableau iframe loaded but has no content (height 0).");
+                    fallback.style.display = 'block';
+                    iframe.style.display = 'none';
+                } else {
+                    fallback.style.display = 'none';
+                }
             };
 
             // Fallback after 10 seconds if no load event
             setTimeout(() => {
                 if (iframe.offsetHeight === 0) {
-                    console.warn("Tableau iframe likely failed to load (height 0).");
+                    console.warn("Tableau iframe likely failed to load (height 0 after timeout).");
                     fallback.style.display = 'block';
                     iframe.style.display = 'none';
                 }
