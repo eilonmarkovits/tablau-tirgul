@@ -66,12 +66,27 @@
             margin-top: 0;
         }
 
-        .placeholder {
-            text-align: center;
-            padding: 20px;
+        .tableau-container {
+            margin: 20px 0;
+            padding: 15px;
             background: rgba(231, 76, 60, 0.2);
             border-radius: 10px;
-            margin: 20px 0;
+            position: relative;
+        }
+
+        .tableau-iframe {
+            width: 100%;
+            height: 600px;
+            border: none;
+            border-radius: 5px;
+        }
+
+        .fallback-message {
+            text-align: center;
+            padding: 20px;
+            background: rgba(0, 0, 0, 0.5);
+            border-radius: 5px;
+            display: none;
         }
 
         .inventory-list {
@@ -115,7 +130,7 @@
 
         <div class="section" id="home">
             <h2>Welcome to Ace! 👋</h2>
-            <p>Drive away in your dream car today! At Ace Car Dealership, we offer top-quality vehicles with unbeatable service. Explore our inventory below! 🚦</p>
+            <p>Drive away in your dream car today! At Ace Car Dealership, we offer top-quality vehicles with unbeatable service. Explore our inventory and analytics below! 🚦</p>
         </div>
 
         <div class="section" id="inventory">
@@ -130,9 +145,17 @@
 
         <div class="section" id="analytics">
             <h2>Sales Analytics 📈</h2>
-            <p>Our sales performance dashboard will be available soon! Stay tuned for interactive insights. 🚗</p>
-            <div class="placeholder">
-                <p>Tableau Dashboard Coming Soon! 📊</p>
+            <p>See our performance in action with this interactive Tableau dashboard!</p>
+            <div class="tableau-container">
+                <iframe 
+                    src="https://public.tableau.com/views/dashboardfirst_17425545826930/Dashboard1?:language=en-US&:embed=y&:display_count=n&:origin=viz_share_link" 
+                    class="tableau-iframe" 
+                    title="Ace Car Dealership Analytics"
+                    id="tableauIframe">
+                </iframe>
+                <div class="fallback-message" id="fallbackMessage">
+                    <p>🚗 Oops! The dashboard couldn’t load. Please check the Tableau link or refresh the page. 🏎️</p>
+                </div>
             </div>
         </div>
 
@@ -147,5 +170,33 @@
             <p>© 2025 Ace Car Dealership | Powered by Passion & <a href="mailto:info@acecars.com">☕</a></p>
         </footer>
     </div>
+
+    <script>
+        // Check if Tableau iframe loads
+        document.addEventListener('DOMContentLoaded', () => {
+            const iframe = document.getElementById('tableauIframe');
+            const fallback = document.getElementById('fallbackMessage');
+
+            iframe.onerror = () => {
+                console.error("Tableau iframe failed to load.");
+                fallback.style.display = 'block';
+                iframe.style.display = 'none';
+            };
+
+            iframe.onload = () => {
+                console.log("Tableau iframe loaded successfully!");
+                fallback.style.display = 'none';
+            };
+
+            // Fallback after 10 seconds if no load event
+            setTimeout(() => {
+                if (iframe.offsetHeight === 0) {
+                    console.warn("Tableau iframe likely failed to load (height 0).");
+                    fallback.style.display = 'block';
+                    iframe.style.display = 'none';
+                }
+            }, 10000);
+        });
+    </script>
 </body>
 </html>
